@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery</title>
+</head>
+
+<body>
+<script>
+$(document).ready(function(){
+			
+			$("#box").keyup(function() {
+
+			
+				if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode != 8) && (event.keyCode != 46) && (event.keyCode < 36 || event.keyCode > 41)){
+						$("div").show();
+						event.returnValue = false;
+						$("title").text("Error");
+						$("div").css("background-color","red");
+						
+						
+				}
+				else{
+							
+				
+							$("title").text("Calculate");
+							var x = $("#box").val();
+							var y = x % 3;
+							console.log(y);
+							
+							
+							if(y==0){
+								$("div").show();
+								$("#div1").css("background-color","green");
+								$("#div2").css("background-color","yellow");
+								$("#div3").css("background-color","green");
+							}
+							
+							if(y==1){
+								$("div").show();
+								$("#div1").css("background-color","yellow");
+								$("#div2").css("background-color","green");
+								$("#div3").css("background-color","yellow");
+							}
+							if(y==2){
+								$("div").hide();
+								
+							}
+				}
+			});
+	
+});
+</script>
+<p align="center">Blank = 0, ใช้ keyCode ในการตัดสินจึงไม่ขึ้นแสดงสีแดงหากพิมพ์( ๅ / - ภ ถ ุ ึ ค ต จ)</p>
+<p align="center">
+  <input name="box" type="text" id="box" style="text-align:center" />
+</p>
+<div id="div1" align="center">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+<div id="div2" align="center">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+<div id="div3" align="center">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+
+
+
+
+</body>
+</html>
